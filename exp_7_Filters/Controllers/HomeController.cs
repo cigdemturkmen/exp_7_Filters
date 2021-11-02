@@ -8,6 +8,7 @@ using System.Web.Mvc;
 namespace exp_7_Filters.Controllers
 {
     [Log]
+    [ExceptionHandler]
     public class HomeController : Controller
     {
         /*
@@ -27,6 +28,7 @@ namespace exp_7_Filters.Controllers
         /*[Log]*/
         public ActionResult Index()
         {
+            throw new Exception("Hatasız action olmaz!");
             return View();
         }
 
@@ -36,6 +38,13 @@ namespace exp_7_Filters.Controllers
         {
             return View();
         }
-    
-}
+
+
+        public ActionResult Error()
+        {
+            var mesaj = TempData["HataMesaji"];
+
+            return View();
+        }
+    }
 }
