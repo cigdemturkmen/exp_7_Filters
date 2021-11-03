@@ -9,7 +9,7 @@ namespace exp_7_Filters.Filters
 {
     public class ExceptionHandlerAttribute : FilterAttribute, IExceptionFilter
     {
-        public void OnException(ExceptionContext filterContext)
+        public void OnException(ExceptionContext filterContext) // index sayfasında hata fırlattığı için, OnException metodu tetiklendi.
         {
             var controllerAdi = filterContext.RouteData.Values["controller"];
             var actionAdi = filterContext.RouteData.Values["action"];
