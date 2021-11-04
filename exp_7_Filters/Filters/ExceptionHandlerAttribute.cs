@@ -17,7 +17,7 @@ namespace exp_7_Filters.Filters
             // bu hatanın db veya bir file'a loglanması gerekir.
 
 
-            filterContext.Controller.TempData["HataMesaji"] = filterContext.Exception.Message; // sistemdeki hatayı error sayfasında göstermek istiyosan
+            filterContext.Controller.TempData["HataMesaji"] = filterContext.Exception.Message; // sistemdeki hatayı error sayfasında göstermek istiyosan. tempdatayı burda setledik.
 
             filterContext.ExceptionHandled = true;
 

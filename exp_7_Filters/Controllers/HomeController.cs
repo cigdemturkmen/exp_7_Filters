@@ -9,6 +9,7 @@ namespace exp_7_Filters.Controllers
 {
     [Log]
     [ExceptionHandler]
+    // [Auth]
     public class HomeController : Controller
     {
         /*
@@ -22,25 +23,27 @@ namespace exp_7_Filters.Controllers
           b. OnResultExecuted : Sonuç döndürüldükten sonra çalışır.
         3.Exceptionfilter : Bir hata olduğu zaman OnException metodu tetiklenir.
 
-        4.AuthorizationFilter: hocaya tempdatanın mesajını atamadık onu sor?
+        4.AuthorizationFilter: 
 
+        .net frameworkte bunlara filter deniyor. .Net core mvc'de middleware deniyor(aspect oriented yaklaşımın bir diğer adı)
          */
 
         // [Log]
         public ActionResult Index()
         {
-            throw new Exception("Hatasız action olmaz! :D");
+            //throw new Exception("Hatasız action olmaz! :D");
             return View();
         }
 
 
         // [Log] -- Bu controller'daki tüm action'lara etki etmesini istiyosan public class HomeController'ın üstüne yapıştır.
+        [Auth]
         public ActionResult List()
         {
             return View();
         }
 
-
+        // [AllowAnonymous] // Authattributeden kurtarmak için bunu yazdık
         public ActionResult Error()
         {
             var mesaj = TempData["HataMesaji"];
